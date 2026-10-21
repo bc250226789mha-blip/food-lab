@@ -152,7 +152,7 @@ h1 em{animation:shimmer 6s linear infinite}
 .product-order:before{content:'';position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
 .product-order span{display:inline-block}
 
-@media(any-hover:hover) and (any-pointer:fine){
+@media(hover:hover) and (pointer:fine){
   .product-card.is-visible:hover{transform:perspective(1000px) translateY(-10px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));box-shadow:0 28px 50px rgba(35,59,37,.18);border-color:#d9b98f}
   .product-card.reveal.done:hover{transition:transform .15s ease-out,box-shadow .45s,border-color .3s}
   .product-card:hover:before{opacity:1}
@@ -173,7 +173,7 @@ h1 em{animation:shimmer 6s linear infinite}
 .step:before{content:'';position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--orange),#efb16a);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
 .step-icon{width:fit-content;transition:transform .5s var(--ease-spring)}
 .step-number{transition:color .3s,transform .4s var(--ease-spring)}
-@media(any-hover:hover) and (any-pointer:fine){
+@media(hover:hover) and (pointer:fine){
   .step.is-visible:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(35,59,37,.1)}
   .step:hover:before{transform:scaleX(1)}
   .step:hover .step-icon{transform:translateY(-4px) rotate(-10deg) scale(1.2)}
@@ -258,7 +258,7 @@ h1 em{animation:shimmer 6s linear infinite}
 .cursor-dark .cursor-body{border-color:rgba(248,245,236,.8)}
 .cursor-down .cursor-body{transform:scale(.8)}
 .spark{position:fixed;z-index:9998;pointer-events:none;color:var(--orange);font-size:14px;line-height:1;animation:spark .7s var(--ease-out) forwards}
-@media(prefers-reduced-motion:reduce){.spark{display:none!important}}
+@media(prefers-reduced-motion:reduce){.cursor-dot,.cursor-ring,.spark{display:none!important}.has-cursor,.has-cursor *{cursor:auto!important}}
 
 /* ---------- Footer: do phone numbers ---------- */
 .footer-phones{justify-self:end;display:grid;gap:6px;text-align:right}
@@ -345,7 +345,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
   var $ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(any-hover: hover) and (any-pointer: fine)').matches;
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- 1. Scroll progress bar + sticky header state ---------- */
   var bar = document.createElement('div');
@@ -479,7 +479,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 
   /* ---------- 7. Custom cursor: ✦ dot + naram ring + click burst ---------- */
-  if (true) {
+  if (fine && !reduce) {
     var root = document.documentElement;
     var dot = document.createElement('div'); dot.className = 'cursor-dot';
     var ring = document.createElement('div'); ring.className = 'cursor-ring';
@@ -500,7 +500,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       dot.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0)';
     }, { passive: true });
     (function loop() {
-      var k = reduce ? 1 : 0.18; rx += (mx - rx) * k; ry += (my - ry) * k;
+      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
       ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
       requestAnimationFrame(loop);
     })();
@@ -520,7 +520,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     document.addEventListener('pointerdown', function (e) {
       if (e.pointerType && e.pointerType !== 'mouse') return;
       root.classList.add('cursor-down');
-      for (var i = 0; !reduce && i < 7; i++) {
+      for (var i = 0; i < 7; i++) {
         var s = document.createElement('span');
         var a = (Math.PI * 2 * i) / 7 + Math.random() * 0.5, d = 38 + Math.random() * 30;
         s.className = 'spark'; s.textContent = '✦';
