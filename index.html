@@ -1,77 +1,157 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fffaf0">
-<title>Food Lab — Frozen Foods & Desi Favorites</title>
+<title>Food Lab — Frozen Foods & Desi Favorites in Lahore</title>
+<meta name="description" content="Premium frozen chicken snacks and authentic desi favorites in Lahore. Order nuggets, kababs, wings and patties online — fast, fresh and family-friendly.">
+<meta property="og:title" content="Food Lab — Frozen Foods & Desi Favorites">
+<meta property="og:description" content="Good food, made easy. Premium frozen snacks and desi favorites, delivered in Lahore.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{--cream:#fffaf0;--white:#fff;--ink:#263b2b;--muted:#687568;--green:#28583d;--green2:#39764c;--orange:#e49b31;--orange2:#f4c56b;--line:#e9e3d4;--shadow:0 20px 50px #263b2b12}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Nunito, sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button,a{outline-offset:4px}a:focus-visible,button:focus-visible{outline:3px solid var(--orange)}
-.wrap{width:min(1160px,calc(100% - 44px));margin:auto}.topline{background:var(--green);color:white;text-align:center;padding:8px 12px;font-size:13px;font-weight:800;letter-spacing:.04em}.topline b{color:#ffd27d}
-header{position:sticky;top:0;z-index:10;background:#fffaf0ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:26px}.brand img{width:100px;height:70px;object-fit:contain}.links{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:900}.links a:not(.btn):hover{color:var(--orange)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:white;padding:14px 22px;border-radius:12px;font-weight:900;border:0;cursor:pointer;transition:background .2s,transform .2s}.btn:hover{background:var(--green2);transform:translateY(-2px)}.btn.orange{background:var(--orange);color:#2a321f}.btn.orange:hover{background:#f1b64e}.menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--green)}
-.hero{padding:62px 0 68px}.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:52px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#b97817;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:12px}.eyebrow:before{content:"";height:2px;width:25px;background:currentColor}.hero h1{font:600 clamp(3.2rem,6vw,5.3rem)/.99 Fredoka,sans-serif;letter-spacing:-.045em;margin:18px 0}.hero h1 span{color:var(--green2)}.hero p{color:var(--muted);font-size:17px;max-width:460px;margin:0 0 28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn.outline{background:transparent;color:var(--green);border:1.5px solid #cbd6c7}.btn.outline:hover{background:#edf3e9}.hero-meta{display:flex;align-items:center;gap:12px;margin-top:28px;font-size:13px;font-weight:800;color:var(--muted)}.mini-icons{display:flex}.mini-icons span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e9f0e4;border:2px solid var(--cream);margin-left:-6px;color:var(--green)}.mini-icons span:first-child{margin-left:0}.hero-art{position:relative;padding:0 0 20px 20px}.hero-art:before{content:"";position:absolute;inset:25px 22px 0 0;border-radius:28px;background:#f3d89f;transform:rotate(-3deg)}.hero-art img{position:relative;width:100%;height:430px;object-fit:cover;border-radius:26px;box-shadow:var(--shadow)}.stamp{position:absolute;left:-12px;top:24px;background:var(--orange2);border:5px solid var(--cream);border-radius:50%;width:104px;height:104px;display:grid;place-items:center;text-align:center;font:600 17px/1.05 Fredoka,sans-serif;transform:rotate(-8deg)}.image-caption{position:absolute;right:16px;bottom:4px;background:white;padding:14px 18px;border-radius:13px;box-shadow:var(--shadow);font-size:13px;font-weight:900}.image-caption small{display:block;font-weight:700;color:var(--muted)}
-.benefits{background:#f4eddd;border-block:1px solid #e8dfcc}.benefits-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:21px 0}.benefit{display:flex;align-items:center;justify-content:center;gap:11px;font-weight:900;font-size:14px}.benefit svg{color:var(--green);flex-shrink:0}
-section{padding:82px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 38px}.section-head .eyebrow:before{display:none}.section-head h2{font:600 clamp(2.5rem,4.5vw,3.7rem)/1.04 Fredoka,sans-serif;letter-spacing:-.04em;margin:12px 0}.section-head p{color:var(--muted);margin:0;font-size:16px}.products{background:#fffdf8}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.product{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .2s,box-shadow .2s}.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.product img{width:100%;height:245px;object-fit:cover;background:#eee}.product-body{padding:20px}.product h3{font:600 23px Fredoka,sans-serif;margin:0 0 6px}.product p{font-size:14px;color:var(--muted);margin:0 0 18px}.product-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}.pill{background:#edf3e9;color:var(--green);padding:6px 10px;border-radius:7px;font-size:11px;font-weight:900;letter-spacing:.05em}.order-link{font-size:13px;color:var(--green);font-weight:900;border-bottom:1px solid #a9bea7}.desi{background:#f7edda}.desi-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px}.desi-img{position:relative}.desi-img img{height:410px;width:100%;object-fit:cover;border-radius:24px;box-shadow:var(--shadow)}.desi-img:after{content:"";position:absolute;inset:12px -12px -12px 12px;border:2px solid #d8b76f;border-radius:24px;z-index:0;pointer-events:none}.desi-img img{position:relative;z-index:1}.desi-copy h2{font:600 clamp(2.6rem,4.5vw,3.8rem)/1.02 Fredoka,sans-serif;letter-spacing:-.04em;margin:14px 0}.desi-copy p{color:var(--muted);font-size:16px}.desi-badge{display:inline-flex;background:#fff8e9;color:#a76510;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:900;margin:5px 0 20px}
-.about{text-align:center}.about-box{max-width:850px;margin:auto;background:var(--green);color:white;border-radius:24px;padding:42px 30px}.about-box h2{font:600 clamp(2.2rem,4vw,3.2rem)/1.05 Fredoka,sans-serif;margin:12px 0}.about-box p{color:#e0eadf;max-width:620px;margin:0 auto 24px}.about-box .eyebrow{color:#ffd27d}.about-box .eyebrow:before{background:currentColor}
-.contact{padding-top:0}.contact-box{display:flex;align-items:center;justify-content:space-between;gap:25px;background:white;border:1px solid var(--line);border-radius:20px;padding:26px 30px;box-shadow:var(--shadow)}.contact-box h3{font:600 25px Fredoka,sans-serif;margin:0 0 4px}.contact-box p{color:var(--muted);margin:0;font-size:14px}.wa{background:#1e7b4b;white-space:nowrap}.wa:hover{background:#155e38}.wa svg{width:19px;height:19px}
-footer{position:relative;overflow:hidden;padding:48px 0 20px;background:linear-gradient(135deg,#183d2b 0%,#28583d 62%,#326a47 100%);color:#fff}footer:before{content:"";position:absolute;width:300px;height:300px;border:1px solid #ffffff18;border-radius:50%;right:-95px;top:-170px;box-shadow:0 0 0 35px #ffffff08,0 0 0 70px #ffffff05;pointer-events:none}.footer-main{position:relative;display:grid;grid-template-columns:1.35fr .8fr 1fr;gap:36px;padding-bottom:32px}.footer-brand{display:flex;align-items:center;gap:12px;font:600 23px Fredoka,sans-serif}.footer-brand img{width:68px;height:58px;object-fit:contain;background:#fff;border-radius:14px;padding:5px}.footer-tagline{max-width:320px;margin:15px 0 18px;color:#d8e6d9;font-size:14px}.footer-kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:900;color:#ffd27d}.footer-heading{font:600 19px Fredoka,sans-serif;margin:5px 0 15px}.footer-links{display:grid;gap:10px;color:#e2ede3;font-size:14px;font-weight:700}.footer-links a{width:max-content;max-width:100%;transition:color .2s,transform .2s}.footer-links a:hover{color:#ffd27d;transform:translateX(3px)}.footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.footer-contact p{margin:0;color:#d8e6d9;font-size:14px}.footer-wa{display:inline-flex;align-items:center;gap:9px;background:#ffd27d;color:#233a29;padding:11px 15px;border-radius:11px;font-size:13px;font-weight:900;transition:transform .2s,background .2s}.footer-wa:hover{background:#ffe0a0;transform:translateY(-2px)}.footer-bottom{position:relative;display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:1px solid #ffffff26;padding-top:17px;color:#d1e0d3;font-size:12px}.footer-bottom strong{color:#ffd27d}.footer-social-note{font-weight:800;letter-spacing:.04em}
-@media(prefers-reduced-motion:no-preference){.load-in{animation:enter .5s ease-out both}@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
-@media(max-width:800px){.nav{height:74px}.links{gap:16px}.brand img{width:80px}.hero-grid{gap:30px}.hero-art img{height:360px}.hero h1{font-size:clamp(3rem,7vw,4.3rem)}.product img{height:190px}.desi-grid{gap:30px}.desi-img img{height:350px}}
-@media(max-width:650px){.wrap{width:calc(100% - 32px)}.topline{font-size:11px}.nav{height:70px}.menu-toggle{display:block}.links{display:none;position:absolute;left:0;right:0;top:70px;background:var(--cream);padding:20px 24px 24px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.links.open{display:flex}.links .btn{justify-content:center}.hero{padding:34px 0 46px}.hero-grid,.desi-grid{grid-template-columns:1fr;gap:30px}.hero-art{order:-1;padding-left:12px}.hero-art img{height:300px}.stamp{width:85px;height:85px;font-size:14px;left:-5px}.hero h1{font-size:clamp(3rem,12vw,4rem)}.hero p{font-size:15px}.benefits-row{grid-template-columns:1fr;gap:14px;padding:18px 0}.benefit{justify-content:flex-start}.section-head{margin-bottom:26px}section{padding:60px 0}.product-grid{grid-template-columns:1fr;gap:16px}.product{display:grid;grid-template-columns:40% 1fr}.product img{height:100%;min-height:190px}.product-body{padding:16px}.product h3{font-size:20px}.product p{font-size:13px}.desi-img{order:0}.desi-img img{height:290px}.desi-copy h2{font-size:2.7rem}.about-box{padding:32px 20px}.contact-box{align-items:flex-start;flex-direction:column;padding:22px}.footer-row{flex-direction:column;text-align:center}.footer-brand{justify-content:center}}
-@media(max-width:390px){.actions .btn{width:100%}.product{grid-template-columns:1fr}.product img{height:200px;min-height:0}.image-caption{right:8px}.brand img{width:70px}}
-
-.location{background:#fffdf8}.location-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:38px;align-items:stretch}.location-copy{padding:12px 0}.location-copy h2{font:600 clamp(2.5rem,4.5vw,3.6rem)/1.03 Fredoka,sans-serif;letter-spacing:-.04em;margin:14px 0}.location-copy p{color:var(--muted);margin-bottom:22px}.location-address{display:flex;align-items:flex-start;gap:12px;margin:0 0 24px}.location-address>svg{color:var(--green);flex-shrink:0}.location-address strong{display:block;font-weight:900}.location-address span{display:block;color:var(--muted);font-size:14px}.location-address small{font-size:11px}.map-frame{width:100%;height:360px;min-height:320px;border:0;border-radius:20px;box-shadow:var(--shadow);background:#e9e3d4}
-@media(max-width:650px){.location-grid{grid-template-columns:1fr;gap:24px}.map-frame{height:300px;min-height:300px}}
-@media(max-width:800px){.footer-main{grid-template-columns:1fr 1fr;gap:28px}.footer-about{grid-column:1/-1}}
-@media(max-width:520px){footer{padding:38px 0 18px}.footer-main{grid-template-columns:1fr;gap:26px}.footer-about{grid-column:auto}.footer-bottom{flex-direction:column;text-align:center;gap:7px}.footer-brand img{width:60px;height:54px}}
-
-.price{font-size:19px;font-weight:900;color:var(--green)}
-</style>
+<script src="js/boot.js"></script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="topline">QUALITY <b>·</b> TASTE <b>·</b> CARE &nbsp; | &nbsp; Made for happy family meals</div>
-<header><div class="wrap nav">
-<a class="brand" href="#home" aria-label="Food Lab home"><img src="assets/food-lab-logo.webp" alt="Food Lab Frozen Foods logo"></a>
-<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-<nav class="links" id="navLinks"><a href="#frozen">Frozen Foods</a><a href="#desi">Desi Food</a><a href="#about">About Us</a><a href="#location">Location</a><a href="#contact">Contact</a><a class="btn orange" href="https://wa.me/923065158738" target="_blank" rel="noopener">Order on WhatsApp <span aria-hidden="true">↗</span></a></nav>
-</div></header>
-<main>
-<section class="hero" id="home"><div class="wrap hero-grid"><div class="load-in"><span class="eyebrow">Fresh taste, ready when you are</span><h1>Good food.<br><span>Made easy.</span></h1><p>Premium frozen snacks and authentic desi favorites, prepared for busy days and family moments. Great taste, trusted quality, right at your doorstep.</p><div class="actions"><a class="btn orange" href="#frozen">Shop frozen foods <span aria-hidden="true">→</span></a><a class="btn outline" href="#desi">Explore desi food</a></div><div class="hero-meta"><div class="mini-icons" aria-hidden="true"><span>✓</span><span>✦</span><span>⌂</span></div><span>Quality you can taste in every bite</span></div></div>
-<div class="hero-art load-in"><img src="assets/frozen-nuggets.png" alt="Golden crispy chicken nuggets served with dipping sauce"><div class="stamp">Fresh<br>Frozen<br>Delicious</div><div class="image-caption">Frozen fresh<small>Quick, easy, delicious.</small></div></div></div></section>
-<div class="benefits"><div class="wrap benefits-row">
-<div class="benefit"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4 7-11V5l-7-3-7 3v5c0 7 7 11 7 11Z"/><path d="m9 12 2 2 4-4"/></svg>Quality ingredients</div>
-<div class="benefit"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 12h6M9 16h6"/></svg>Easy family meals</div>
-<div class="benefit"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>Made for your freezer</div>
-</div></div>
-<section class="products" id="frozen"><div class="wrap"><div class="section-head"><span class="eyebrow">Straight from the freezer to the table</span><h2>Frozen Foods</h2><p>Freshly prepared frozen favorites in convenient 500g packs.</p></div>
-<div class="product-grid">
-<article class="product"><img src="assets/frozen-nuggets.png" alt="Food Lab Chicken Nuggets" loading="lazy"><div class="product-body"><h3>Chicken Nuggets</h3><p>500g pack</p><div class="product-foot"><strong class="price">Rs. 850</strong><a class="order-link" href="https://wa.me/923065158738?text=Hi%20Food%20Lab%2C%20I%27d%20like%20to%20order%20Chicken%20Nuggets%20500g%20for%20Rs.%20850.">Order ↗</a></div></div></article>
-<article class="product"><img src="assets/frozen-kebabs.png" alt="Food Lab Chicken Shami Kabab" loading="lazy"><div class="product-body"><h3>Chicken Shami Kabab</h3><p>500g pack</p><div class="product-foot"><strong class="price">Rs. 700</strong><a class="order-link" href="https://wa.me/923065158738?text=Hi%20Food%20Lab%2C%20I%27d%20like%20to%20order%20Chicken%20Shami%20Kabab%20500g%20for%20Rs.%20700.">Order ↗</a></div></div></article>
-<article class="product"><img src="assets/chicken-patties.jpeg" alt="Food Lab Chicken Wings" loading="lazy"><div class="product-body"><h3>Chicken Wings</h3><p>500g pack</p><div class="product-foot"><strong class="price">Rs. 700</strong><a class="order-link" href="https://wa.me/923065158738?text=Hi%20Food%20Lab%2C%20I%27d%20like%20to%20order%20Chicken%20Wings%20500g%20for%20Rs.%20700.">Order ↗</a></div></div></article>
-<article class="product"><img src="assets/chicken-seekh-kabab.jpeg" alt="Food Lab Chicken Patties" loading="lazy"><div class="product-body"><h3>Chicken Patties</h3><p>500g pack</p><div class="product-foot"><strong class="price">Rs. 850</strong><a class="order-link" href="https://wa.me/923065158738?text=Hi%20Food%20Lab%2C%20I%27d%20like%20to%20order%20Chicken%20Patties%20500g%20for%20Rs.%20850.">Order ↗</a></div></div></article>
-<article class="product"><img src="assets/chicken-wings.jpeg" alt="Food Lab Chicken Seekh Kabab" loading="lazy"><div class="product-body"><h3>Chicken Seekh Kabab</h3><p>500g pack</p><div class="product-foot"><strong class="price">Rs. 1,100</strong><a class="order-link" href="https://wa.me/923065158738?text=Hi%20Food%20Lab%2C%20I%27d%20like%20to%20order%20Chicken%20Seekh%20Kabab%20500g%20for%20Rs.%201100.">Order ↗</a></div></div></article>
-</div></div></section>
-<section class="desi" id="desi"><div class="wrap desi-grid"><div class="desi-img"><img src="assets/homemade-biryani.png" alt="Traditional chicken biryani with fragrant rice, herbs and spices" loading="lazy"></div><div class="desi-copy"><span class="eyebrow">A taste of home</span><h2>Desi food,<br>full of love.</h2><p>From fragrant biryani to comforting family favorites, bring the warmth of desi flavor to your table. Made for sharing, celebrating, and going back for seconds.</p><span class="desi-badge">DESI FAVORITES · BIG FLAVOR</span><div><a class="btn" href="https://wa.me/923065158738?text=Assalam-o-alaikum%20Food%20Lab%2C%20please%20share%20your%20desi%20food%20menu.">Ask about desi menu <span aria-hidden="true">→</span></a></div></div></div></section>
-<section class="about" id="about"><div class="wrap"><div class="about-box"><span class="eyebrow">Welcome to Food Lab</span><h2>Good food for real life.</h2><p>We bring together convenient frozen favorites and the comforting flavors we grew up loving. Whether it's a quick snack or a desi family meal, we're here to make food time easier and tastier.</p><a class="btn orange" href="https://wa.me/923065158738" target="_blank" rel="noopener">Talk to us on WhatsApp ↗</a></div></div></section>
 
-<section class="location" id="location"><div class="wrap location-grid">
-  <div class="location-copy"><span class="eyebrow">Find Food Lab</span><h2>Come visit us.</h2>
-  <p>Use the map to find our location. Replace this sample map area with your exact shop address before publishing.</p>
-  <div class="location-address"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.3"/></svg><div><strong>Food Lab</strong><span>Hajvery Housing Scheme, Lahore, Punjab, Pakistan<br><small>This map shows the housing scheme area, not an exact shop pin.</small></span></div></div>
-  <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hajvery+Housing+Scheme%2C+Lahore%2C+Punjab%2C+Pakistan" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+<!-- first-visit brand curtain (only shown when JS is on, once per session) -->
+<div class="curtain" id="curtain" aria-hidden="true"><img src="assets/food-lab-logo.webp" alt="" width="120" height="120"></div>
+
+<div class="topline">QUALITY <b>·</b> TASTE <b>·</b> CARE &nbsp; | &nbsp; Made for happy family meals</div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Food Lab home"><img src="assets/food-lab-logo.webp" alt="Food Lab Frozen Foods logo" width="100" height="70"></a>
+    <nav class="links" id="navLinks" aria-label="Main">
+      <a href="#frozen">Frozen Foods</a>
+      <a href="#desi">Desi Food</a>
+      <a href="#about">About Us</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn" type="button" aria-label="Open your order" aria-haspopup="dialog">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
-  <iframe class="map-frame" title="Map of Hajvery Housing Scheme, Lahore, Punjab, Pakistan" loading="lazy" src="https://maps.google.com/maps?q=Hajvery%20Housing%20Scheme%2C%20Lahore%2C%20Punjab%2C%20Pakistan&t=&z=12&ie=UTF8&iwloc=&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow" data-hero data-d="0">Fresh taste, ready when you are</span>
+      <h1 aria-label="Good food. Made easy.">
+        <span class="line"><span data-hero-line data-d="1">Good food.</span></span>
+        <span class="line"><span data-hero-line data-d="2" class="accent">Made easy.</span></span>
+      </h1>
+      <p data-hero data-d="3">Premium frozen snacks and authentic desi favorites, prepared for busy days and family moments. Great taste, trusted quality, right at your doorstep.</p>
+      <div class="actions" data-hero data-d="4">
+        <a class="btn orange" href="#frozen">Shop frozen foods <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn outline" href="#desi">Explore desi food</a>
+      </div>
+      <div class="hero-meta" data-hero data-d="5">
+        <div class="mini-icons" aria-hidden="true"><span>✓</span><span>✦</span><span>⌂</span></div>
+        <span>Quality you can taste in every bite</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="art-frame" id="heroFrame"><img id="heroImg" src="assets/frozen-nuggets.png" alt="Golden crispy chicken nuggets served with dipping sauce" width="808" height="544" fetchpriority="high"></div>
+      <div class="stamp" aria-hidden="true"><span>Fresh<br>Frozen<br>Delicious</span></div>
+      <div class="image-caption" data-hero data-d="6">Frozen fresh<small>Quick, easy, delicious.</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="benefits"><div class="wrap benefits-row">
+  <div class="benefit reveal" data-i="0"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-4 7-11V5l-7-3-7 3v5c0 7 7 11 7 11Z"/><path d="m9 12 2 2 4-4"/></svg>Quality ingredients</div>
+  <div class="benefit reveal" data-i="1"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 12h6M9 16h6"/></svg>Easy family meals</div>
+  <div class="benefit reveal" data-i="2"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>Made for your freezer</div>
+</div></div>
+
+<!-- ============ PRODUCTS (loaded from /api/products) ============ -->
+<section class="products" id="frozen"><div class="wrap">
+  <div class="section-head reveal"><span class="eyebrow">Straight from the freezer to the table</span><h2>Frozen Foods</h2><p>Freshly prepared frozen favorites. Add what you like — we'll confirm your order on WhatsApp.</p></div>
+  <div class="product-grid" id="productGrid" aria-live="polite" aria-busy="true"></div>
 </div></section>
 
-<section class="contact" id="contact"><div class="wrap"><div class="contact-box"><div><h3>Ready to place an order?</h3><p>Message Food Lab on WhatsApp for product details, availability and prices.</p></div><a class="btn wa" href="https://wa.me/923065158738?text=Assalam-o-alaikum%20Food%20Lab%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.2c.4 2.8 2.5 4.9 5.3 5.3l1-1.1 2 .9c-.2 1.2-1.1 1.9-2.3 1.8-3.9-.5-6.9-3.5-7.4-7.4-.1-1.2.6-2.1 1.8-2.3l.9 2-1.3.8Z"/></svg> WhatsApp: 03065158738</a></div></div></section>
+<!-- ============ DESI ============ -->
+<section class="desi" id="desi"><div class="wrap desi-grid">
+  <div class="desi-img reveal" data-reveal="left"><img src="assets/homemade-biryani.png" alt="Traditional chicken biryani with fragrant rice, herbs and spices" loading="lazy" width="552" height="562"></div>
+  <div class="desi-copy reveal" data-reveal="right">
+    <span class="eyebrow">A taste of home</span>
+    <h2>Desi food,<br>full of love.</h2>
+    <p>From fragrant biryani to comforting family favorites, bring the warmth of desi flavor to your table. Made for sharing, celebrating, and going back for seconds.</p>
+    <span class="desi-badge">DESI FAVORITES · BIG FLAVOR</span>
+    <div><a class="btn" data-wa="Assalam-o-alaikum Food Lab, please share your desi food menu." href="#contact">Ask about desi menu <span class="arrow" aria-hidden="true">→</span></a></div>
+  </div>
+</div></section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about"><div class="wrap">
+  <div class="about-box reveal" data-reveal="zoom">
+    <span class="eyebrow">Welcome to Food Lab</span>
+    <h2>Good food for real life.</h2>
+    <p>We bring together convenient frozen favorites and the comforting flavors we grew up loving. Whether it's a quick snack or a desi family meal, we're here to make food time easier and tastier.</p>
+    <a class="btn orange" data-wa="" href="#contact" target="_blank" rel="noopener">Talk to us on WhatsApp <span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
+</div></section>
+
+<!-- ============ LOCATION ============ -->
+<section class="location" id="location"><div class="wrap location-grid">
+  <div class="location-copy reveal" data-reveal="left">
+    <span class="eyebrow">Find Food Lab</span>
+    <h2>Come visit us.</h2>
+    <p>Use the map to find our area. Message us on WhatsApp and we'll guide you to the exact spot.</p>
+    <div class="location-address">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>
+      <div><strong>Food Lab</strong><span>Hajvery Housing Scheme, Lahore, Punjab, Pakistan<br><small>This map shows the housing scheme area, not an exact shop pin.</small></span></div>
+    </div>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hajvery+Housing+Scheme%2C+Lahore%2C+Punjab%2C+Pakistan" target="_blank" rel="noopener">Open in Google Maps <span class="arrow" aria-hidden="true">↗</span></a>
+  </div>
+  <iframe class="map-frame reveal" data-reveal="right" title="Map of Hajvery Housing Scheme, Lahore, Punjab, Pakistan" loading="lazy" src="https://maps.google.com/maps?q=Hajvery%20Housing%20Scheme%2C%20Lahore%2C%20Punjab%2C%20Pakistan&t=&z=12&ie=UTF8&iwloc=&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div></section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact"><div class="wrap contact-grid">
+  <div class="contact-box reveal" data-reveal="left">
+    <div>
+      <h3>Ready to place an order?</h3>
+      <p>Add items to your order above, or message Food Lab on WhatsApp for product details, availability and prices.</p>
+    </div>
+    <a class="btn wa" data-wa="Assalam-o-alaikum Food Lab, I'd like to place an order." href="#contact" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.2c.4 2.8 2.5 4.9 5.3 5.3l1-1.1 2 .9c-.2 1.2-1.1 1.9-2.3 1.8-3.9-.5-6.9-3.5-7.4-7.4-.1-1.2.6-2.1 1.8-2.3l.9 2-1.3.8Z"/></svg>
+      WhatsApp: 03065158738
+    </a>
+  </div>
+  <form class="contact-form reveal" data-reveal="right" id="contactForm" novalidate>
+    <h3>Send us a message</h3>
+    <div class="field"><label for="cName">Your name</label><input id="cName" name="name" type="text" autocomplete="name" maxlength="80" required></div>
+    <div class="field"><label for="cPhone">Phone / WhatsApp</label><input id="cPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0300 1234567" maxlength="20" required></div>
+    <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" rows="3" maxlength="1000" required></textarea></div>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="form-msg" id="contactMsg" role="status"></p>
+    <button class="btn" type="submit"><span class="btn-label">Send on WhatsApp</span><span class="spinner" aria-hidden="true"></span></button>
+  </form>
+</div></section>
+
 </main>
+
 <footer>
   <div class="wrap">
     <div class="footer-main">
       <div class="footer-about">
-        <a class="footer-brand" href="#home" aria-label="Food Lab home"><img src="assets/food-lab-logo.webp" alt="Food Lab logo"><span>Food Lab</span></a>
+        <a class="footer-brand" href="#home" aria-label="Food Lab home"><img src="assets/food-lab-logo.webp" alt="Food Lab logo" width="68" height="58"><span>Food Lab</span></a>
         <p class="footer-tagline">Frozen favorites and comforting desi flavors, prepared to make family mealtimes easier and tastier.</p>
         <span class="footer-kicker">Quality · Taste · Care</span>
       </div>
@@ -83,14 +163,56 @@ footer{position:relative;overflow:hidden;padding:48px 0 20px;background:linear-g
       </div>
       <div class="footer-contact">
         <div><div class="footer-heading">Let’s get your order started</div><p>Message us on WhatsApp for orders, availability and product details.</p></div>
-        <a class="footer-wa" href="https://wa.me/923065158738" target="_blank" rel="noopener" aria-label="Chat with Food Lab on WhatsApp">WhatsApp: 03065158738 <span aria-hidden="true">↗</span></a>
+        <a class="footer-wa" data-wa="" href="#contact" target="_blank" rel="noopener" aria-label="Chat with Food Lab on WhatsApp">WhatsApp: 03065158738 <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 <strong>Food Lab</strong>. All rights reserved.</span><span class="footer-social-note">Made with care for your family table.</span></div>
+    <div class="footer-bottom"><span>© <span id="year">2026</span> <strong>Food Lab</strong>. All rights reserved.</span><span class="footer-social-note">Made with care for your family table.</span></div>
   </div>
 </footer>
-<script>
-const toggle=document.getElementById('menuToggle'),nav=document.getElementById('navLinks');
-toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation')});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));
-</script></body></html>
+
+<!-- ============ ORDER DRAWER ============ -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Your order</h2>
+    <button class="icon-btn" id="drawerClose" type="button" aria-label="Close your order"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+
+  <div class="drawer-body" id="drawerBody">
+    <div class="cart-empty" id="cartEmpty">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <p>Your order is empty.</p>
+      <a class="btn" href="#frozen" data-close-drawer>Browse frozen foods</a>
+    </div>
+
+    <ul class="cart-list" id="cartList"></ul>
+
+    <form class="checkout" id="checkoutForm" novalidate hidden>
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">Rs. 0</strong></div>
+      <p class="muted small">Delivery charges (if any) are confirmed with you on WhatsApp. Payment on delivery.</p>
+      <div class="field"><label for="oName">Your name</label><input id="oName" name="name" type="text" autocomplete="name" maxlength="80" required></div>
+      <div class="field"><label for="oPhone">Phone / WhatsApp</label><input id="oPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0300 1234567" maxlength="20" required></div>
+      <div class="field"><label for="oAddress">Delivery address</label><textarea id="oAddress" name="address" rows="2" autocomplete="street-address" maxlength="300" required></textarea></div>
+      <div class="field"><label for="oNotes">Notes <span class="muted">(optional)</span></label><input id="oNotes" name="notes" type="text" maxlength="300"></div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="form-msg" id="orderMsg" role="alert"></p>
+      <button class="btn orange block" type="submit"><span class="btn-label">Send order on WhatsApp</span><span class="spinner" aria-hidden="true"></span></button>
+    </form>
+
+    <div class="order-done" id="orderDone" hidden>
+      <svg class="check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none"/><path fill="none" d="M15 27l8 8 14-16"/></svg>
+      <h3>Almost done!</h3>
+      <p>WhatsApp should have opened with your order.</p>
+      <p class="muted small">Press <strong>Send</strong> in the chat so we can confirm delivery time and charges. If nothing opened, tap the button below.</p>
+      <a class="btn wa block" id="orderWa" href="#" target="_blank" rel="noopener">Open WhatsApp <span class="arrow" aria-hidden="true">↗</span></a>
+      <button class="btn outline block" type="button" id="orderAgain">Continue browsing</button>
+    </div>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/products.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
