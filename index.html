@@ -66,7 +66,11 @@
       </div>
     </div>
     <div class="hero-art">
-      <div class="art-frame" id="heroFrame"><img id="heroImg" src="assets/frozen-nuggets.png" alt="Golden crispy chicken nuggets served with dipping sauce" width="808" height="544" fetchpriority="high"></div>
+      <div class="art-frame" id="heroFrame">
+        <!-- slide 1 is static (fast first paint); js/main.js builds slides 2-5 from js/products.js -->
+        <div class="slide is-active"><div class="slide-media"><img id="heroImg" src="assets/frozen-nuggets.png" alt="Golden crispy chicken nuggets served with dipping sauce" width="808" height="544" fetchpriority="high"></div><div class="slide-text"><small>Frozen favorite</small><b>Chicken Nuggets</b></div></div>
+        <div class="show-dots" id="showDots" role="group" aria-label="Choose product"></div>
+      </div>
       <div class="stamp" aria-hidden="true"><span>Fresh<br>Frozen<br>Delicious</span></div>
       <div class="image-caption" data-hero data-d="6">Frozen fresh<small>Quick, easy, delicious.</small></div>
     </div>

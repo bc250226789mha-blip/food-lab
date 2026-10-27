@@ -102,11 +102,57 @@
     var y = window.scrollY || 0;
     header.classList.toggle('scrolled', y > 24);
     if (!reduceMotion && heroImg && root.classList.contains('hero-settled') && y < 900) {
-      heroImg.style.transform = 'translate3d(0,' + Math.min(y * 0.05, 20).toFixed(1) + 'px,0) scale(1.1)'; // base scale matches the CSS so there is no jump
+      var pt = 'translate3d(0,' + Math.min(y * 0.05, 20).toFixed(1) + 'px,0) scale(1.1)'; // base scale matches the CSS so there is no jump
+      $$('.art-frame img').forEach(function (im) { im.style.transform = pt; });
     }
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
+
+
+  // 3b) Hero product showcase: slide transition through the products in js/products.js
+  (function () {
+    var frame = $('#heroFrame'), dots = $('#showDots'), list = (window.FL_PRODUCTS || []).slice(0, 5);
+    if (!frame || !dots || list.length < 2) return;
+    var accents = ['#f3d89f', '#e9b98a', '#f0b27a', '#d9c27a', '#e8a58f'];
+    var shades  = ['#2b1a12cc', '#4a2f1acc', '#3a2515cc', '#4a3318cc', '#2d1c14cc'];
+    var slides = [$('.slide', frame)];
+    var first = slides[0].querySelector('.slide-text b'); if (first) first.textContent = list[0].name;
+    list.slice(1).forEach(function (p) {
+      var im = h('img', { src: p.image, alt: p.name, width: 808, height: 544, loading: 'lazy' });
+      var el = h('div', { class: 'slide' }, [
+        h('div', { class: 'slide-media' }, [im]),
+        h('div', { class: 'slide-text' }, [h('small', { text: 'Frozen favorite' }), h('b', { text: p.name })])
+      ]);
+      frame.insertBefore(el, dots); slides.push(el);
+    });
+    var cur = 0, timer = null, busy = false, art = frame.parentNode;
+    var btns = slides.map(function (_, i) {
+      var b = h('button', { type: 'button', 'aria-label': 'Show ' + list[i].name });
+      b.addEventListener('click', function () { go(i); play(); });
+      dots.appendChild(b); return b;
+    });
+    function paint(i) {
+      slides[i].style.setProperty('--shade', shades[i % shades.length]);
+      art.style.setProperty('--accent', accents[i % accents.length]);
+      btns.forEach(function (b, k) { b.classList.toggle('on', k === i); });
+    }
+    function go(n) {
+      n = (n + slides.length) % slides.length;
+      if (n === cur || busy) return;
+      var prev = slides[cur], next = slides[n]; busy = true;
+      prev.classList.remove('is-active'); prev.classList.add('is-out');
+      next.classList.add('is-active'); cur = n; paint(n);
+      setTimeout(function () {
+        prev.classList.add('no-anim'); prev.classList.remove('is-out');
+        void prev.offsetWidth; prev.classList.remove('no-anim'); busy = false;
+      }, reduceMotion ? 20 : 1000);
+    }
+    function play() { stop(); if (reduceMotion) return; timer = setInterval(function () { go(cur + 1); }, 3000); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    paint(0);
+    setTimeout(play, 2600); // let the hero entrance finish first
+  })();
 
   // 4) Scroll-spy for the nav
   var navLinks = $$('#navLinks a');
@@ -154,26 +200,38 @@
       grid.appendChild(h('div', { class: 'grid-error', text: 'Our menu is being updated. Please check back soon, or message us on WhatsApp.' }));
       return;
     }
+    var slides = [], cur = 0, busy = false, timer = null, inView = false;
+    var stage = h('div', { class: 'pstage', role: 'region', 'aria-roledescription': 'carousel', 'aria-label': 'Frozen foods' });
     products.forEach(function (p, i) {
       var addBtn = h('button', { class: 'btn-add', type: 'button', 'data-id': p.id, 'aria-label': 'Add ' + p.name + ' to your order' }, [
         h('span', { class: 'plus', 'aria-hidden': 'true', text: '+' }), h('span', { class: 'lbl', text: 'Add' })
       ]);
-      var media = h('div', { class: 'product-media' }, [
-        h('img', { src: p.image || 'assets/food-lab-logo.webp', alt: p.name, loading: i < 3 ? 'eager' : 'lazy', width: 600, height: 400 }),
-        p.badge ? h('span', { class: 'product-badge', text: p.badge }) : null
-      ]);
-      var card = h('article', { class: 'product reveal' }, [
-        media,
-        h('div', { class: 'product-body' }, [
-          h('h3', { text: p.name }),
-          p.description ? h('p', { class: 'desc', text: p.description }) : h('div', { class: 'desc' }),
-          p.weight ? h('span', { class: 'weight', text: p.weight }) : null,
-          h('div', { class: 'product-foot' }, [h('strong', { class: 'price', text: money(p.price) }), addBtn])
+      var s = h('div', { class: 'ps' + (i === 0 ? ' is-active' : '') }, [
+        h('div', { class: 'ps-media' }, [h('img', { src: p.image || 'assets/food-lab-logo.webp', alt: p.name, width: 808, height: 544, loading: i < 2 ? 'eager' : 'lazy' })]),
+        h('div', { class: 'ps-title' }, [h('small', { text: 'Frozen favorite' }), h('b', { text: p.name })]),
+        p.badge ? h('span', { class: 'ps-badge', text: p.badge }) : null,
+        h('div', { class: 'ps-card' }, [
+          h('div', { class: 'ps-info' }, [p.description ? h('p', { text: p.description }) : null, p.weight ? h('span', { class: 'weight', text: p.weight }) : null]),
+          h('div', { class: 'ps-buy' }, [h('strong', { class: 'price', text: money(p.price) }), addBtn])
         ])
       ]);
-      card.style.setProperty('--i', String(i % 3)); // stagger within a row
-      grid.appendChild(card);
+      stage.appendChild(s); slides.push(s);
     });
+    grid.appendChild(h('div', { class: 'pshow reveal' }, [stage]));
+    function go(n) {
+      n = (n + slides.length) % slides.length;
+      if (n === cur || busy) return;
+      var prev = slides[cur], next = slides[n]; busy = true;
+      prev.classList.remove('is-active'); prev.classList.add('is-out');
+      next.classList.add('is-active'); cur = n;
+      setTimeout(function () {
+        prev.classList.add('no-anim'); prev.classList.remove('is-out');
+        void prev.offsetWidth; prev.classList.remove('no-anim'); busy = false;
+      }, reduceMotion ? 20 : 1000);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function play() { stop(); if (reduceMotion || !inView || products.length < 2) return; timer = setInterval(function () { go(cur + 1); }, 3000); }
+    inView = true; play(); // keeps running wherever the visitor is on the page
     observeReveals(grid);
   }
 
